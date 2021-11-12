@@ -1,0 +1,72 @@
+[
+  {
+    "Id": "1789e4c1-b8ef-4a21-87a9-60f4819ef045",
+    "Name": "test",
+    "MovieCategoryId": 0,
+    "Rank": 7,
+    "ImagePath": "test//path"
+  },
+  {
+    "Id": "8254e466-54ea-441d-b4cb-28b8cc92d1f5",
+    "Name": "testtest",
+    "MovieCategoryId": 0,
+    "Rank": 8,
+    "ImagePath": "test//path"
+  },
+  {
+    "Id": "f035e060-327c-4182-ad6c-60e56b6b2846",
+    "Name": "testtestaa",
+    "MovieCategoryId": 0,
+    "Rank": 9,
+    "ImagePath": "test//path"
+  },
+  {
+    "Id": "723e53b5-5052-4d39-af52-d7a61a37ce1c",
+    "Name": "6yt890",
+    "MovieCategoryId": 1,
+    "Rank": 10,
+    "ImagePath": "test//path"
+  },
+  {
+    "Id": "a584fd34-dbba-4aa5-8998-eee787f1a2f8",
+    "Name": "hgtfgyasdsa",
+    "MovieCategoryId": 0,
+    "Rank": 1,
+    "ImagePath": "test//path"
+  },
+  {
+    "Id": "6859abde-624f-4c65-bb88-673dbf198ac9",
+    "Name": "hgtsdfsddyasdsa",
+    "MovieCategoryId": 0,
+    "Rank": 2,
+    "ImagePath": "test//path"
+  },
+  {
+    "Id": "2594e75a-ef2e-4575-9c37-34bf4a304eb2",
+    "Name": "qkmn",
+    "MovieCategoryId": 0,
+    "Rank": 3,
+    "ImagePath": "test//path"
+  },
+  {
+    "Id": "86bd1ea7-c622-477d-bb41-763e19bad90c",
+    "Name": "elad7new",
+    "MovieCategoryId": 0,
+    "Rank": 4,
+    "ImagePath": "test//path"
+  },
+  {
+    "Id": "d10c43ac-41ce-4517-87ba-ddc66a3h54s8",
+    "Name": "elad10",
+    "MovieCategoryId": 0,
+    "Rank": 5,
+    "ImagePath": "test//path"
+  },
+  {
+    "Id": "e5edaf8d-e99d-4f11-bf82-28017d350e91",
+    "Name": "11122344a",
+    "MovieCategoryId": 0,
+    "Rank": 6,
+    "ImagePath": "test//path"
+  }
+]
