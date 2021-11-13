@@ -1,0 +1,6 @@
+.modal{
+    direction: rtl;
+}
+.modal-header .btn-close{
+    margin: 0;
+}

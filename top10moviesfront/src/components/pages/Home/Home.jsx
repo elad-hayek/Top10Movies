@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import MovieCard from '../../generic/MovieCard/MovieCard';
 import Row from 'react-bootstrap/Row'
 import Col  from 'react-bootstrap/Col';
 import { Container } from 'react-bootstrap';
+import DetailsPopup from '../../generic/DetailsPopup/DetailsPopup';
+import { MOVIE_DETAILS_POPUP_ID } from '../../../Constants';
 
 const Home = () =>{
+
     const [movies, setMovies] = useState([
         {
           "Id": "1789e4c1-b8ef-4a21-87a9-60f4819ef045",
@@ -79,6 +82,7 @@ const Home = () =>{
       ])
 
     return(
+        <>
         <Container style={{maxWidth: '1700px'}}>
             <Row xs={1} sm={1} md={2} lg={3} xxl={5} className="g-4">
                 {
@@ -92,6 +96,9 @@ const Home = () =>{
                 }
             </Row>
         </Container>
+        
+        <DetailsPopup id={ MOVIE_DETAILS_POPUP_ID }/>
+        </>
     );
 }
 

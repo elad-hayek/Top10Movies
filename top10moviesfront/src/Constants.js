@@ -1,0 +1,1 @@
+export const MOVIE_DETAILS_POPUP_ID = "Movie details";
