@@ -4,3 +4,6 @@
 .modal-header .btn-close{
     margin: 0;
 }
+.movie-detail-header{
+    font-weight: bold;
+}

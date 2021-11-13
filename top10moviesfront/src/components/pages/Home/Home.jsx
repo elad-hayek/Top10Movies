@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import MovieCard from '../../generic/MovieCard/MovieCard';
 import Row from 'react-bootstrap/Row'
 import Col  from 'react-bootstrap/Col';
@@ -68,7 +68,7 @@ const Home = () =>{
         {
           "Id": "d10c43ac-41ce-4517-87ba-ddc66a3h54s8",
           "Name": "elad10",
-          "MovieCategoryId": 0,
+          "MovieCategoryId": 1,
           "Rank": 5,
           "ImagePath": "https://www.planetware.com/wpimages/2020/02/france-in-pictures-beautiful-places-to-photograph-eiffel-tower.jpg"
         },
