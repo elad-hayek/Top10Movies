@@ -1,9 +1,10 @@
-import React, { useContext, useState, useRef, useCallback, useEffect } from 'react';
+import React, { useContext, useState, useCallback, useEffect } from 'react';
 import MovieCard from '../../generic/MovieCard/MovieCard';
 import Row from 'react-bootstrap/Row'
 import Col  from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button'
-import { Container } from 'react-bootstrap';
+import Container  from 'react-bootstrap/Container';
+import Alert from 'react-bootstrap/Alert'
 import DetailsPopup from '../../generic/DetailsPopup/DetailsPopup';
 import { ADD_MOVIE_FORM_ID, MOVIE_DETAILS_POPUP_ID, EDIT_MOVIE_FORM_ID } from '../../../Constants';
 import './Home.css'
@@ -11,12 +12,18 @@ import { Store } from '../../../Store';
 import MyDropDown from '../../generic/MyDropDown/MyDropDown';
 import AddMovieForm from '../../forms/AddMovieForm/AddMovieForm';
 import FormPopup from '../../generic/FormPopup/FormPopup';
-
+import { getData } from '../../../apiHandler';
 
 const Home = () =>{
 
-    const {movieCategories, movies, setFormPopupState} = useContext(Store);
+    const {setMovieCategories, movieCategories, movies, setFormPopupState, setMovies, errorMessage, setErrorMessage} = useContext(Store);
     const [movieFilter, setMovieFilter] = useState([...movies]);
+
+
+    useEffect(()=>{
+        getData("movies/get_movie_categories", setMovieCategories, setErrorMessage)
+        getData("movies", setMovies, setErrorMessage)
+    },[setMovieCategories, setMovies, setErrorMessage])
 
     useEffect(()=>{
         setMovieFilter([...movies]);
@@ -32,6 +39,7 @@ const Home = () =>{
 
     return(
         <div className="home-page-container">
+            {errorMessage !== "" && <Alert style={{direction:'ltr'}} variant="danger">{errorMessage.toString()}</Alert>}
             <Container style={{maxWidth: '1700px'}}>
                 <Button onClick={()=>{setFormPopupState([true, ADD_MOVIE_FORM_ID])}}>הוסף סרט</Button>
                 <MyDropDown items={movieCategories} title="קטגוריה" updateFunction={filterMovies}/>

@@ -19,13 +19,13 @@ const schema = yup.object().shape({
 
 const AddMovieForm = ({isEdit}) =>{
 
-    const {movieCategories, setFormPopupState, selectedMovie, setMovies} = useContext(Store)
+    const {movieCategories, setFormPopupState, selectedMovie, setMovies, setErrorMessage} = useContext(Store)
 
     const submitForm = (data) =>{
         if(isEdit)
-            postData(`movies?id=${selectedMovie.id}`, "PUT", data, setMovies, ()=>{}, ()=>{setFormPopupState([false,""])});
+            postData(`movies?id=${selectedMovie.id}`, "PUT", data, setMovies, setErrorMessage, ()=>{setFormPopupState([false,""])});
         else
-            postData("movies", "POST", data, setMovies, ()=>{}, ()=>{setFormPopupState([false,""])});
+            postData("movies", "POST", data, setMovies, setErrorMessage, ()=>{setFormPopupState([false,""])});
     }
 
     return(

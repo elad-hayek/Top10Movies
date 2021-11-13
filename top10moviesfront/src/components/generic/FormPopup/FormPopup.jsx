@@ -1,8 +1,6 @@
 import React, { useContext } from 'react';
 import Modal from 'react-bootstrap/Modal'
-import Button from 'react-bootstrap/Button'
 import { Store } from '../../../Store';
-import { MdStar, MdStarOutline } from "react-icons/md";
 
 
 const FormPopup = ({id, title, onSubmitFunction, formData}) =>{

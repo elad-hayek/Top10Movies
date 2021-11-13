@@ -1,6 +1,4 @@
-import React,{ createContext, useEffect, useState } from "react";
-import { getData } from "./apiHandler";
-import { MOVIES } from "./Constants";
+import React,{ createContext, useState } from "react";
 
 
 export const Store = createContext();
@@ -11,6 +9,7 @@ const StoreProvider = ({children}) => {
   const [detailsPopupState, setDetailsPopupState] = useState([false,""])
   const [formPopupState, setFormPopupState] = useState([false,""])
   const [movies, setMovies] = useState([]);
+  const [errorMessage, setErrorMessage] = useState("")
   const [selectedMovie, setSelectedMovie] = useState({
     "id": "",
     "name": "",
@@ -24,7 +23,8 @@ const StoreProvider = ({children}) => {
     selectedMovie,
     movieCategories,
     movies,
-    formPopupState
+    formPopupState,
+    errorMessage
   };
   
   const actions = {
@@ -32,14 +32,9 @@ const StoreProvider = ({children}) => {
     setSelectedMovie,
     setMovieCategories,
     setMovies,
-    setFormPopupState
+    setFormPopupState,
+    setErrorMessage
   };
-
-  useEffect(()=>{
-    getData("movies/get_movie_categories", setMovieCategories, ()=>{})
-    getData("movies", setMovies, ()=>{})
-  },[])
-
 
   return (
     <Store.Provider value={{...values, ...actions}}>
