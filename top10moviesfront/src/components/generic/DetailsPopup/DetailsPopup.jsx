@@ -57,6 +57,9 @@ const DetailsPopup = ({id}) =>{
             <Button variant="primary" onClick={handleEdit}>
                 ערוך
             </Button>
+            <Button variant="danger" onClick={()=>{setDetailsPopupState([false, ""])}}>
+                מחק
+            </Button>
             </Modal.Footer>
       </Modal>
     );
