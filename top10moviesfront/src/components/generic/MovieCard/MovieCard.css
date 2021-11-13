@@ -12,3 +12,10 @@
     align-items: center;
     position: inherit;
 }
+.card{
+    cursor: pointer;
+    box-shadow: 7px 8px 6px 2px rgb(0 0 0 / 60%);
+}
+.card:hover{
+    opacity: 0.6;
+}
