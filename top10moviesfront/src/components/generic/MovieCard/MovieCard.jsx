@@ -15,10 +15,10 @@ const MovieCard = ({movie}) =>{
 
     return(
         <Card className="bg-dark text-back" onClick={handleClick}>
-            <Card.Img src={movie.ImagePath} alt="Card image"/>
+            <Card.Img src={movie.imagePath} alt="Card image"/>
             <Card.ImgOverlay>
-                <div class="fade-for-text">
-                    <Card.Title>{movie.Name}</Card.Title>
+                <div className="fade-for-text">
+                    <Card.Title>{movie.name}</Card.Title>
                 </div>
             </Card.ImgOverlay>
         </Card>

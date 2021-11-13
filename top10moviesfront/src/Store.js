@@ -1,30 +1,34 @@
 import React,{ createContext, useState } from "react";
+import { MOVIES } from "./Constants";
 
 
 export const Store = createContext();
 
 const StoreProvider = ({children}) => {
 
-  const [movieCategories, setMovieCategories] = useState([{Id: 0, Name: "מדע בדיוני"}, {Id: 1, Name: "פעולה"}]);
+  const [movieCategories, setMovieCategories] = useState([{id: 1, name: "מדע בדיוני"}, {id: 2, name: "פעולה"}]);
   const [detailsPopupState, setDetailsPopupState] = useState([false,""])
+  const [movies, setMovies] = useState(MOVIES);
   const [selectedMovie, setSelectedMovie] = useState({
-    "Id": "",
-    "Name": "",
-    "MovieCategoryId": 0,
-    "Rank": 0,
-    "ImagePath": ""
+    "id": "",
+    "name": "",
+    "movieCategoryId": 1,
+    "rank": 0,
+    "imagePath": ""
   })
 
   const values = {
     detailsPopupState,
     selectedMovie,
     movieCategories,
+    movies
   };
   
   const actions = {
     setDetailsPopupState,
     setSelectedMovie,
-    setMovieCategories
+    setMovieCategories,
+    setMovies
   };
 
 

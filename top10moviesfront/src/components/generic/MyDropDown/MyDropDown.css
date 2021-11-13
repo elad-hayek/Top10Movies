@@ -1,0 +1,12 @@
+.dropdown{
+    direction:rtl;
+}
+.dropdown-toggle::after{
+    margin-right: 10px;
+}
+.dropdown-item{
+    text-align: right;
+}
+.dropdown-menu-right{
+    margin: 20px 0 20px 0;
+}
