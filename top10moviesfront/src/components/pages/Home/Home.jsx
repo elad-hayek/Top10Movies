@@ -47,7 +47,7 @@ const Home = () =>{
             </Container>
             
             <DetailsPopup id={ MOVIE_DETAILS_POPUP_ID }/>
-            <FormPopup id={ ADD_MOVIE_FORM_ID } formData={<AddMovieForm/>}/>
+            <FormPopup id={ ADD_MOVIE_FORM_ID } formData={<AddMovieForm/>} title="טופס הוספת סרט"/>
         </div>
     );
 }

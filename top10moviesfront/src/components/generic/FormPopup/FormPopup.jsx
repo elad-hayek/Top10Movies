@@ -16,11 +16,6 @@ const FormPopup = ({id, title, onSubmitFunction, formData}) =>{
             <Modal.Body >
                 {formData}
             </Modal.Body>
-            <Modal.Footer>
-            <Button variant="primary" onClick={()=>{setFormPopupState([false, ""])}}>
-                ערוך
-            </Button>
-            </Modal.Footer>
       </Modal>
     );
 }
