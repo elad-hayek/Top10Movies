@@ -2,16 +2,20 @@ import React, { useContext, useState, useRef, useCallback } from 'react';
 import MovieCard from '../../generic/MovieCard/MovieCard';
 import Row from 'react-bootstrap/Row'
 import Col  from 'react-bootstrap/Col';
+import Button from 'react-bootstrap/Button'
 import { Container } from 'react-bootstrap';
 import DetailsPopup from '../../generic/DetailsPopup/DetailsPopup';
-import { MOVIES, MOVIE_DETAILS_POPUP_ID } from '../../../Constants';
+import { ADD_MOVIE_FORM_ID, MOVIES, MOVIE_DETAILS_POPUP_ID } from '../../../Constants';
 import './Home.css'
 import { Store } from '../../../Store';
 import MyDropDown from '../../generic/MyDropDown/MyDropDown';
+import AddMovieForm from '../../forms/AddMovieForm/AddMovieForm';
+import FormPopup from '../../generic/FormPopup/FormPopup';
+
 
 const Home = () =>{
 
-    const {movieCategories, movies} = useContext(Store);
+    const {movieCategories, movies, setFormPopupState} = useContext(Store);
     const [movieFilter, setMovieFilter] = useState([...movies]);
 
       const filterMovies = useCallback((value) =>{
@@ -25,6 +29,7 @@ const Home = () =>{
     return(
         <div className="home-page-container">
             <Container style={{maxWidth: '1700px'}}>
+                <Button onClick={()=>{setFormPopupState([true, ADD_MOVIE_FORM_ID])}}>הוסף סרט</Button>
                 <MyDropDown items={movieCategories} title="קטגוריה" updateFunction={filterMovies}/>
                 <div>
                 <Row xs={1} sm={1} md={2} lg={3} xxl={5} className="g-4">
@@ -42,6 +47,7 @@ const Home = () =>{
             </Container>
             
             <DetailsPopup id={ MOVIE_DETAILS_POPUP_ID }/>
+            <FormPopup id={ ADD_MOVIE_FORM_ID } formData={<AddMovieForm/>}/>
         </div>
     );
 }

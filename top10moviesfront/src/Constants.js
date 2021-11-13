@@ -1,10 +1,11 @@
 export const MOVIE_DETAILS_POPUP_ID = "Movie details";
+export const ADD_MOVIE_FORM_ID = "Add movie";
 
 export const  MOVIES =[{
     "id": "1789e4c1-b8ef-4a21-87a9-60f4819ef045",
     "name": "אייפל",
     "movieCategoryId": 1,
-    "rank": 2,
+    "rank": 1,
     "imagePath": "https://www.planetware.com/wpimages/2020/02/france-in-pictures-beautiful-places-to-photograph-eiffel-tower.jpg"
   },
   {

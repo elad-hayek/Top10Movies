@@ -8,6 +8,7 @@ const StoreProvider = ({children}) => {
 
   const [movieCategories, setMovieCategories] = useState([{id: 1, name: "מדע בדיוני"}, {id: 2, name: "פעולה"}]);
   const [detailsPopupState, setDetailsPopupState] = useState([false,""])
+  const [formPopupState, setFormPopupState] = useState([false,""])
   const [movies, setMovies] = useState(MOVIES);
   const [selectedMovie, setSelectedMovie] = useState({
     "id": "",
@@ -21,14 +22,16 @@ const StoreProvider = ({children}) => {
     detailsPopupState,
     selectedMovie,
     movieCategories,
-    movies
+    movies,
+    formPopupState
   };
   
   const actions = {
     setDetailsPopupState,
     setSelectedMovie,
     setMovieCategories,
-    setMovies
+    setMovies,
+    setFormPopupState
   };
 
 
