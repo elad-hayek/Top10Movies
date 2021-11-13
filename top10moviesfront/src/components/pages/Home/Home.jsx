@@ -5,7 +5,7 @@ import Col  from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button'
 import { Container } from 'react-bootstrap';
 import DetailsPopup from '../../generic/DetailsPopup/DetailsPopup';
-import { ADD_MOVIE_FORM_ID, MOVIES, MOVIE_DETAILS_POPUP_ID } from '../../../Constants';
+import { ADD_MOVIE_FORM_ID, MOVIE_DETAILS_POPUP_ID, EDIT_MOVIE_FORM_ID } from '../../../Constants';
 import './Home.css'
 import { Store } from '../../../Store';
 import MyDropDown from '../../generic/MyDropDown/MyDropDown';
@@ -48,6 +48,7 @@ const Home = () =>{
             
             <DetailsPopup id={ MOVIE_DETAILS_POPUP_ID }/>
             <FormPopup id={ ADD_MOVIE_FORM_ID } formData={<AddMovieForm/>} title="טופס הוספת סרט"/>
+            <FormPopup id={ EDIT_MOVIE_FORM_ID } formData={<AddMovieForm isEdit/>} title="טופס עריכת סרט"/>
         </div>
     );
 }

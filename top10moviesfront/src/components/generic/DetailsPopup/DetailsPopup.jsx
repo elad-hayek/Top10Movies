@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button'
 import { Store } from '../../../Store';
 import './DetailsPopup.css'
 import { MdStar, MdStarOutline } from "react-icons/md";
+import { EDIT_MOVIE_FORM_ID } from '../../../Constants';
 
 const DisplayRank = ({rank}) =>{
     return (
@@ -27,9 +28,13 @@ const DisplayRank = ({rank}) =>{
     );
 }
 
-
 const DetailsPopup = ({id}) =>{
-    const {detailsPopupState, setDetailsPopupState, selectedMovie, movieCategories} = useContext(Store)
+    const {detailsPopupState, setDetailsPopupState, selectedMovie, movieCategories, setFormPopupState} = useContext(Store)
+
+    const handleEdit = () =>{
+        setDetailsPopupState([false, ""]);
+        setFormPopupState([true, EDIT_MOVIE_FORM_ID]);
+    };
 
     return(
         <Modal show={detailsPopupState[0] && detailsPopupState[1] === id} onHide={()=>{setDetailsPopupState([false, ""])}}>
@@ -49,7 +54,7 @@ const DetailsPopup = ({id}) =>{
                 </div>
             </Modal.Body>
             <Modal.Footer>
-            <Button variant="primary" onClick={()=>{setDetailsPopupState([false, ""])}}>
+            <Button variant="primary" onClick={handleEdit}>
                 ערוך
             </Button>
             </Modal.Footer>

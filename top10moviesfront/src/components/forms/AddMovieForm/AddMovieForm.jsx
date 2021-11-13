@@ -16,9 +16,9 @@ const schema = yup.object().shape({
     imagePath: yup.string().required("יש להזין קישור לתמונה")
   });  
 
-const AddMovieForm = () =>{
+const AddMovieForm = ({isEdit}) =>{
 
-    const {movieCategories, setFormPopupState} = useContext(Store)
+    const {movieCategories, setFormPopupState, selectedMovie} = useContext(Store)
 
     return(
         <Formik
@@ -28,11 +28,11 @@ const AddMovieForm = () =>{
         console.log(values);
       }}
       initialValues={{
-        name: "",
-        movieCategoryId: 0,
-        rank: 0,
-        imagePath: ""
-      }}
+        name: isEdit?selectedMovie.name : "",
+        movieCategoryId: isEdit?selectedMovie.movieCategoryId : 0,
+        rank: isEdit?selectedMovie.rank : 0,
+        imagePath: isEdit?selectedMovie.imagePath : ""
+        }}
     >
       {({
         handleSubmit,
@@ -133,7 +133,7 @@ const AddMovieForm = () =>{
             </Row>
 
             <Row className="mb-1">
-                <Button type="submit">הוסף</Button>
+                <Button type="submit">{isEdit?"אישור עריכה":"הוספה"}</Button>
             </Row>
             
         </Form>
