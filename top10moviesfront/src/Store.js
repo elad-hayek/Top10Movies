@@ -1,4 +1,5 @@
-import React,{ createContext, useState } from "react";
+import React,{ createContext, useEffect, useState } from "react";
+import { getData } from "./apiHandler";
 import { MOVIES } from "./Constants";
 
 
@@ -9,7 +10,7 @@ const StoreProvider = ({children}) => {
   const [movieCategories, setMovieCategories] = useState([{id: 1, name: "מדע בדיוני"}, {id: 2, name: "פעולה"}]);
   const [detailsPopupState, setDetailsPopupState] = useState([false,""])
   const [formPopupState, setFormPopupState] = useState([false,""])
-  const [movies, setMovies] = useState(MOVIES);
+  const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState({
     "id": "",
     "name": "",
@@ -33,6 +34,11 @@ const StoreProvider = ({children}) => {
     setMovies,
     setFormPopupState
   };
+
+  useEffect(()=>{
+    getData("movies/get_movie_categories", setMovieCategories, ()=>{})
+    getData("movies", setMovies, ()=>{})
+  },[])
 
 
   return (

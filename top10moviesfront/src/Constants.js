@@ -1,6 +1,7 @@
 export const MOVIE_DETAILS_POPUP_ID = "Movie details";
 export const ADD_MOVIE_FORM_ID = "Add movie";
 export const EDIT_MOVIE_FORM_ID = "Edit movie";
+export const API_ADDRESS = "https://localhost:44392/"
 
 export const  MOVIES =[{
     "id": "1789e4c1-b8ef-4a21-87a9-60f4819ef045",

@@ -1,4 +1,4 @@
-import React, { useContext, useState, useRef, useCallback } from 'react';
+import React, { useContext, useState, useRef, useCallback, useEffect } from 'react';
 import MovieCard from '../../generic/MovieCard/MovieCard';
 import Row from 'react-bootstrap/Row'
 import Col  from 'react-bootstrap/Col';
@@ -18,13 +18,17 @@ const Home = () =>{
     const {movieCategories, movies, setFormPopupState} = useContext(Store);
     const [movieFilter, setMovieFilter] = useState([...movies]);
 
-      const filterMovies = useCallback((value) =>{
-        if(value !== 0)
-            setMovieFilter(movies.filter(movie=>movie.movieCategoryId === parseInt(value)));
-        else
-            setMovieFilter([...movies]);
-        
-      },[movies]);
+    useEffect(()=>{
+        setMovieFilter([...movies])
+    },[movies])
+
+    const filterMovies = useCallback((value) =>{
+    if(value !== 0)
+        setMovieFilter(movies.filter(movie=>movie.movieCategoryId === parseInt(value)));
+    else
+        setMovieFilter([...movies]);
+    
+    },[movies]);
 
     return(
         <div className="home-page-container">
