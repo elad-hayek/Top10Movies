@@ -14,6 +14,7 @@ export const getData = (path, callback, errorCallback) =>{
     })
     .catch(err=>{
         errorCallback(err);
+        setTimeout(()=>{errorCallback("")}, 5000);
     })
 
 };

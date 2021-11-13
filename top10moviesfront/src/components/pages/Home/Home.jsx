@@ -39,9 +39,9 @@ const Home = () =>{
 
     return(
         <div className="home-page-container">
-            {errorMessage !== "" && <Alert style={{direction:'ltr'}} variant="danger">{errorMessage.toString()}</Alert>}
-            <Container style={{maxWidth: '1700px'}}>
-                <Button onClick={()=>{setFormPopupState([true, ADD_MOVIE_FORM_ID])}}>הוסף סרט</Button>
+            {errorMessage !== "" && <Alert className="home-error-alert" variant="danger">{errorMessage.toString()}</Alert>}
+            <Container>
+                <Button className="add-movie-button" onClick={()=>{setFormPopupState([true, ADD_MOVIE_FORM_ID])}}>הוסף סרט</Button>
                 <MyDropDown items={movieCategories} title="קטגוריה" updateFunction={filterMovies}/>
                 <div>
                 <Row xs={1} sm={1} md={2} lg={3} xxl={5} className="g-4">
