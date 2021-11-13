@@ -47,7 +47,7 @@ namespace Top10Movies.Services
             }
 
             else
-                throw new DuplicateNameException($"The movie {movie.Name} already exsists");
+                throw new DuplicateNameException($"הסרט {movie.Name} כבר קיים");
         }
         public void DeleteMovie(string id)
         {
@@ -59,7 +59,7 @@ namespace Top10Movies.Services
                 
             }
             else
-                throw new DataException("The movie was not found");
+                throw new DataException("הסרט לא נמצא");
         }
         public void UpdateMovie(string id, Movie movie)
         {
@@ -70,7 +70,7 @@ namespace Top10Movies.Services
             {
                 // checks if there is another movie of the same name
                 if (movies.FirstOrDefault(x => x.Name == movie.Name && x.Id != id) != null)
-                    throw new DuplicateNameException($"The movie {movie.Name} already exsists");
+                    throw new DuplicateNameException($"הסרט {movie.Name} כבר קיים");
 
                 // check if the rank exists
                 if (movies.Any(x => x.Rank == movie.Rank))
@@ -79,7 +79,7 @@ namespace Top10Movies.Services
             }
 
             else
-                throw new DataException("The movie was not found");
+                throw new DataException("הסרט לא נמצא");
         }
 
         private void ChangeMovieSequence(Movie newMovie, Movie dbMovie)
