@@ -1,0 +1,14 @@
+.card-img-overlay{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.fade-for-text{
+    width: 100%;
+    height: 30%;
+    background-color: rgba(255, 255, 255, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: inherit;
+}
