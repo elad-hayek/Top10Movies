@@ -19,8 +19,8 @@ const Home = () =>{
     const [movieFilter, setMovieFilter] = useState([...movies]);
 
     useEffect(()=>{
-        setMovieFilter([...movies])
-    },[movies])
+        setMovieFilter([...movies]);
+    },[movies]);
 
     const filterMovies = useCallback((value) =>{
     if(value !== 0)

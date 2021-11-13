@@ -8,6 +8,7 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import { Store } from '../../../Store';
+import { postData } from '../../../apiHandler';
 
 const schema = yup.object().shape({
     name: yup.string().required("יש להזין שם סרט"),
@@ -18,14 +19,20 @@ const schema = yup.object().shape({
 
 const AddMovieForm = ({isEdit}) =>{
 
-    const {movieCategories, setFormPopupState, selectedMovie} = useContext(Store)
+    const {movieCategories, setFormPopupState, selectedMovie, setMovies} = useContext(Store)
+
+    const submitForm = (data) =>{
+        if(isEdit)
+            postData(`movies?id=${selectedMovie.id}`, "PUT", data, setMovies, ()=>{}, ()=>{setFormPopupState([false,""])});
+        else
+            postData("movies", "POST", data, setMovies, ()=>{}, ()=>{setFormPopupState([false,""])});
+    }
 
     return(
         <Formik
       validationSchema={schema}
       onSubmit={(values)=>{
-        setFormPopupState([false,""]);
-        console.log(values);
+        submitForm(values);
       }}
       initialValues={{
         name: isEdit?selectedMovie.name : "",

@@ -5,6 +5,7 @@ import { Store } from '../../../Store';
 import './DetailsPopup.css'
 import { MdStar, MdStarOutline } from "react-icons/md";
 import { EDIT_MOVIE_FORM_ID } from '../../../Constants';
+import { postData } from '../../../apiHandler';
 
 const DisplayRank = ({rank}) =>{
     return (
@@ -29,11 +30,16 @@ const DisplayRank = ({rank}) =>{
 }
 
 const DetailsPopup = ({id}) =>{
-    const {detailsPopupState, setDetailsPopupState, selectedMovie, movieCategories, setFormPopupState} = useContext(Store)
+    const {detailsPopupState, setDetailsPopupState, selectedMovie, movieCategories, setFormPopupState, setMovies} = useContext(Store)
 
     const handleEdit = () =>{
         setDetailsPopupState([false, ""]);
         setFormPopupState([true, EDIT_MOVIE_FORM_ID]);
+    };
+
+    const handleDelete = () =>{
+        setDetailsPopupState([false, ""]);
+        postData(`movies?id=${selectedMovie.id}`, "DELETE", {}, setMovies, ()=>{});
     };
 
     return(
@@ -57,7 +63,7 @@ const DetailsPopup = ({id}) =>{
             <Button variant="primary" onClick={handleEdit}>
                 ערוך
             </Button>
-            <Button variant="danger" onClick={()=>{setDetailsPopupState([false, ""])}}>
+            <Button variant="danger" onClick={handleDelete}>
                 מחק
             </Button>
             </Modal.Footer>

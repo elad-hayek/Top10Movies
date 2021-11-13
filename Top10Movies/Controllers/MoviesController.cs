@@ -59,7 +59,10 @@ namespace Top10Movies.Controllers
             try
             {
                 _moviesService.AddMovie(movie);
-                return Ok();
+                var movies = _moviesService.GetMovies();
+                if (movies == null)
+                    return NoContent();
+                return Ok(movies);
             }
             catch (Exception e) 
             {
@@ -76,7 +79,10 @@ namespace Top10Movies.Controllers
             try
             {
                 _moviesService.UpdateMovie(id, movie);
-                    return Ok();
+                var movies = _moviesService.GetMovies();
+                if (movies == null)
+                    return NoContent();
+                return Ok(movies);
             }
             catch(Exception e)
             {
@@ -94,7 +100,10 @@ namespace Top10Movies.Controllers
             try
             {
                 _moviesService.DeleteMovie(id);
-                return Ok();
+                var movies = _moviesService.GetMovies();
+                if (movies == null)
+                    return NoContent();
+                return Ok(movies);
             }
             catch (Exception e)
             {

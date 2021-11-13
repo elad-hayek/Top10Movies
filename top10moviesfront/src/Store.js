@@ -7,7 +7,7 @@ export const Store = createContext();
 
 const StoreProvider = ({children}) => {
 
-  const [movieCategories, setMovieCategories] = useState([{id: 1, name: "מדע בדיוני"}, {id: 2, name: "פעולה"}]);
+  const [movieCategories, setMovieCategories] = useState([{id: 1, name: ""}]);
   const [detailsPopupState, setDetailsPopupState] = useState([false,""])
   const [formPopupState, setFormPopupState] = useState([false,""])
   const [movies, setMovies] = useState([]);
